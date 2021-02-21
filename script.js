@@ -30,13 +30,27 @@ const recipeApp = {};
 recipeApp.apiUrl = 'https://api.edamam.com/search'; 
 recipeApp.apiKey = '293c08c7945e511e5cb756b37b0c5179';
 
+recipeApp.addIngred = () => {
+    const ingredients = document.querySelector("#ingredient");
+    const addButton = document.querySelector(".addButton");
+    addButton.addEventListener("click", (e) =>{
+        e.preventDefault();
+        const storage = document.querySelector("#storage");
+        const storageList = document.createElement("li");
+        storageList.innerHTML = ingredients.value;
+        storage.appendChild(storageList); 
+        ingredients.value = '';
+    })
+
+}
+
 //create a method which requests informtion from the API
 recipeApp.getRecipe = () => {
 
     //use URL constructor to specify the parameters we wish to include in our API endpoint
     const url = new URL(recipeApp.apiUrl);
     url.search = new URLSearchParams({
-        q: 'carrot, onions',
+        q: 'chicken, onions',
         app_id: 'e941670e',
         app_key: recipeApp.apiKey
     });
@@ -62,7 +76,9 @@ recipeApp.displayRecipe = () => {
 };
 
 recipeApp.init = () => {
+    recipeApp.addIngred();
     recipeApp.getRecipe();
+
 };
 
 

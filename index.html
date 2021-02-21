@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <title>I don't know what to cook!</title>
 </head>
 <body>
     <header>
         <h1>I don't know what to cook!</h1>
-        <p>Input what you have in your fidge, and we will help you find some recipes</p>
+        <p>Input what you have in your fridge, and we will help you find some recipes</p>
     </header>
     <main>
         <section>
             <!-- Ingredient input section -->
             Input section
+
+            <form>
+                <label for="ingredient"> </label>
+                <input type="text" placeholder="what's in your fridge?" id="ingredient">
+                <button class="addButton"> <i class="fas fa-plus"></i> </button>
+            </form>
+            <ul id="storage"></ul>
         </section>
         <section>
             <!-- button in the middle (random / pick) -->
