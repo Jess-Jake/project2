@@ -1,0 +1,72 @@
+@import 'setup';
+@import 'variables';
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Abel', sans-serif;
+    background-color: $light-blue;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+    background-color: $dark-blue;
+    color: $light-green;
+}
+
+main {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 85%;
+    margin: 0 auto;
+} 
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section {
+    width: calc(100% / 2 - 100px);
+    height: 100%;
+}
+
+.fridge {
+    width: 90%;
+    height: 90%;
+    background-color: $light-yellow;
+}
+
+.button-section {
+    width: 200px;
+    text-align: center;
+}
+
+
+
+
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: $light-green;
+    width: 100%;
+    height: 10%;
+}

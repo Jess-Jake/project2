@@ -33,15 +33,23 @@ recipeApp.apiKey = '293c08c7945e511e5cb756b37b0c5179';
 recipeApp.addIngred = () => {
     const ingredients = document.querySelector("#ingredient");
     const addButton = document.querySelector(".addButton");
+
+
     addButton.addEventListener("click", (e) =>{
         e.preventDefault();
         const storage = document.querySelector("#storage");
         const storageList = document.createElement("li");
         storageList.innerHTML = ingredients.value;
+
+        if (ingredients.value) {
         storage.appendChild(storageList); 
         ingredients.value = '';
+        }else {
+            alert("please tell us what is in your fidge");
+            ingredients.focus();
+        }
     })
-
+   
 }
 
 //create a method which requests informtion from the API

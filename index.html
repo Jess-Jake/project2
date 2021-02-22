@@ -7,33 +7,38 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <title>I don't know what to cook!</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <header>
         <h1>I don't know what to cook!</h1>
         <p>Input what you have in your fridge, and we will help you find some recipes</p>
     </header>
-    <main>
-        <section>
-            <!-- Ingredient input section -->
-            Input section
-
-            <form>
-                <label for="ingredient"> </label>
-                <input type="text" placeholder="what's in your fridge?" id="ingredient">
-                <button class="addButton"> <i class="fas fa-plus"></i> </button>
-            </form>
-            <ul id="storage"></ul>
+    <main class="wrapper">
+        <section class="main-section">
+            <div class="fridge">
+                <!-- Ingredient input section -->
+                <form>
+                    <label for="ingredient"> </label>
+                    <input type="text" placeholder="what's in your fridge?" id="ingredient">
+                    <button class="addButton"> <i class="fas fa-plus"></i> </button>
+                </form>
+                <ul id="storage"></ul>
+            </div>
         </section>
-        <section>
+        <section class="button-section">
             <!-- button in the middle (random / pick) -->
-            button
+            <button class="submitButton">Random Recipe</button>
         </section>
-        <section>
-            <!-- showing recipe and shopping list -->
-            Recipe section
-            <h2></h2>
-            <ul></ul>
+        <section class="main-section">
+            <div class="fridge">
+                <!-- showing recipe and shopping list -->
+                Recipe section
+                <h2></h2>
+                <ul></ul>
+            </div>
         </section>
     </main>
     <footer>
