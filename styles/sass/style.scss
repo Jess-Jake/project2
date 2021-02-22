@@ -64,20 +64,67 @@ section {
     align-items: center;
    
     form {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         width: 90%;
         height: 25%;
         background-color: white;
         border: 1px solid black;
         border-radius: 3%;
         margin-top: 2.5%;
-        
+
+        input {
+            margin: 5px;
+            width: 85%;
+            height: 40%;
+            border: none;
+            font-size: $medium;
+        }
+
+        ::placeholder {
+            font-size: $medium;
+        }
+
+        button {
+            margin: 5px;
+            padding: 0;
+            width: 30px;
+            height:30px;
+            border-radius: 50%;
+            background-color: $dark-brown;
+            border: 1px solid black;
+        }
+
+        button i {
+            font-size: 20px;
+            color: white;
+        }
+
+        button:hover,
+        button:focus {
+            opacity: 0.5;
+        }
     }
+
     .storage {
+        padding: 10px;
         width: 90%;
         height: 70%;
         background-color:$dark-yellow;
         border-radius: 3%;
         border: 1px solid black;
+        color: $dark-brown;
+
+        li {
+            font-size: $medium;
+            list-style: none;
+        }
+
+        i {
+            font-size: $small;
+            margin-right: 3px;
+        }
     }
 
     .recipe-title {

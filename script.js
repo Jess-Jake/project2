@@ -39,7 +39,7 @@ recipeApp.addIngred = () => {
         e.preventDefault();
         const storage = document.querySelector("#storage");
         const storageList = document.createElement("li");
-        storageList.innerHTML = ingredients.value;
+        storageList.innerHTML = `<i class="fas fa-dot-circle"></i>${ingredients.value}`;
 
         if (ingredients.value) {
         storage.appendChild(storageList); 
@@ -56,17 +56,20 @@ recipeApp.submitButton = () => {
     const submitButton = document.querySelector(".submit-button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
-        recipeApp.getRecipe();
+        const ingredList = document.querySelectorAll('li');
+        const randomNumber = Math.floor(Math.random() * ingredList.length);
+        console.log(randomNumber);
+        recipeApp.getRecipe(ingredList[randomNumber].textContent);
     })
 }
 
 //create a method which requests informtion from the API
-recipeApp.getRecipe = () => {
-
+recipeApp.getRecipe = (ingredient) => {
+    console.log(ingredient);
     //use URL constructor to specify the parameters we wish to include in our API endpoint
     const url = new URL(recipeApp.apiUrl);
     url.search = new URLSearchParams({
-        q: 'chicken, onions',
+        q: ingredient,
         app_id: 'e941670e',
         app_key: recipeApp.apiKey
     });

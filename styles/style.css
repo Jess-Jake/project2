@@ -328,6 +328,14 @@ section {
 }
 
 .fridge form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 90%;
   height: 25%;
   background-color: white;
@@ -336,12 +344,68 @@ section {
   margin-top: 2.5%;
 }
 
+.fridge form input {
+  margin: 5px;
+  width: 85%;
+  height: 40%;
+  border: none;
+  font-size: 2rem;
+}
+
+.fridge form ::-webkit-input-placeholder {
+  font-size: 2rem;
+}
+
+.fridge form :-ms-input-placeholder {
+  font-size: 2rem;
+}
+
+.fridge form ::-ms-input-placeholder {
+  font-size: 2rem;
+}
+
+.fridge form ::placeholder {
+  font-size: 2rem;
+}
+
+.fridge form button {
+  margin: 5px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #736357;
+  border: 1px solid black;
+}
+
+.fridge form button i {
+  font-size: 20px;
+  color: white;
+}
+
+.fridge form button:hover,
+.fridge form button:focus {
+  opacity: 0.5;
+}
+
 .fridge .storage {
+  padding: 10px;
   width: 90%;
   height: 70%;
   background-color: #F7F0D4;
   border-radius: 3%;
   border: 1px solid black;
+  color: #736357;
+}
+
+.fridge .storage li {
+  font-size: 2rem;
+  list-style: none;
+}
+
+.fridge .storage i {
+  font-size: 1.25rem;
+  margin-right: 3px;
 }
 
 .fridge .recipe-title {
