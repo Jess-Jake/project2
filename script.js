@@ -52,6 +52,14 @@ recipeApp.addIngred = () => {
    
 }
 
+recipeApp.submitButton = () => {
+    const submitButton = document.querySelector(".submitButton");
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        recipeApp.getRecipe();
+    })
+}
+
 //create a method which requests informtion from the API
 recipeApp.getRecipe = () => {
 
@@ -74,18 +82,21 @@ recipeApp.getRecipe = () => {
             const randomNumber = Math.floor(Math.random()*10);
             jsonResponse.hits[randomNumber].recipe.label;
             console.log(jsonResponse.hits[randomNumber].recipe.label);
+            
             //pass the data into the displayPhotos method
+            recipeApp.displayRecipe(jsonResponse.hits[randomNumber].recipe.label);
         });
 };
 
-recipeApp.displayRecipe = () => {
+recipeApp.displayRecipe = (menu) => {
     const recipeName = document.querySelector('h2');
     const ingredientList = document.querySelector('ul');
+    recipeName.textContent = menu;
 };
 
 recipeApp.init = () => {
     recipeApp.addIngred();
-    recipeApp.getRecipe();
+    recipeApp.submitButton();
 
 };
 

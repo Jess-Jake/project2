@@ -14,6 +14,7 @@ body {
 h1 {
     padding: 0;
     margin: 0;
+    font-size: $x-large;
 }
 
 header {
@@ -21,7 +22,11 @@ header {
     height: 20%;
     background-color: $dark-blue;
     color: $light-green;
+    p {
+        font-size: $large;
+    }
 }
+
 
 main {
     height: 70%;
@@ -51,6 +56,48 @@ section {
     width: 90%;
     height: 90%;
     background-color: $light-yellow;
+    border-radius: 3%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+   
+    form {
+        width: 90%;
+        height: 25%;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 3%;
+        margin-top: 2.5%;
+        
+    }
+    .storage {
+        width: 90%;
+        height: 70%;
+        background-color:$dark-yellow;
+        border-radius: 3%;
+        border: 1px solid black;
+    }
+
+    .recipe-title {
+        width: 90%;
+        height: 45%;
+        background-color: $dark-yellow;
+        border-radius: 3%;
+        border: 1px solid black;
+        margin-top: 2.5%;
+
+    }
+
+    .recipe {
+        width: 90%;
+        height: 45%;
+        background-color: $dark-yellow;
+        border-radius: 3%;
+        border: 1px solid black;
+    }
+
 }
 
 .button-section {
