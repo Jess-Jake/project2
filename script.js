@@ -32,7 +32,7 @@ recipeApp.apiKey = '293c08c7945e511e5cb756b37b0c5179';
 
 recipeApp.addIngred = () => {
     const ingredients = document.querySelector("#ingredient");
-    const addButton = document.querySelector(".addButton");
+    const addButton = document.querySelector(".add-button");
 
 
     addButton.addEventListener("click", (e) =>{
@@ -53,7 +53,7 @@ recipeApp.addIngred = () => {
 }
 
 recipeApp.submitButton = () => {
-    const submitButton = document.querySelector(".submitButton");
+    const submitButton = document.querySelector(".submit-button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
         recipeApp.getRecipe();
