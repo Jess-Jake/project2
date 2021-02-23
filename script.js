@@ -45,7 +45,7 @@ recipeApp.addIngred = () => {
         storage.appendChild(storageList); 
         ingredients.value = '';
         }else {
-            alert("please tell us what is in your fidge");
+            alert("please tell us what is in your fridge");
             ingredients.focus();
         }
     })
@@ -58,8 +58,14 @@ recipeApp.submitButton = () => {
         e.preventDefault();
         const ingredList = document.querySelectorAll('li');
         const randomNumber = Math.floor(Math.random() * ingredList.length);
-        console.log(randomNumber);
-        recipeApp.getRecipe(ingredList[randomNumber].textContent);
+        if (ingredList[randomNumber]) {
+            console.log(randomNumber);
+            recipeApp.getRecipe((ingredList[randomNumber]).textContent);
+        }else {
+            alert("please tell us what is in your fridge");
+            const ingredients = document.querySelector("#ingredient");
+            ingredients.focus();
+        }
     })
 }
 
@@ -83,18 +89,38 @@ recipeApp.getRecipe = (ingredient) => {
         .then((jsonResponse) => {
             
             const randomNumber = Math.floor(Math.random()*10);
-            jsonResponse.hits[randomNumber].recipe.label;
-            console.log(jsonResponse.hits[randomNumber].recipe.label);
+            jsonResponse.hits[randomNumber].recipe;
+            console.log(jsonResponse.hits[randomNumber]);
             
             //pass the data into the displayPhotos method
-            recipeApp.displayRecipe(jsonResponse.hits[randomNumber].recipe.label);
+            recipeApp.displayRecipe(jsonResponse.hits[randomNumber].recipe);
+            
         });
 };
 
+
 recipeApp.displayRecipe = (menu) => {
     const recipeName = document.querySelector('h2');
-    const ingredientList = document.querySelector('ul');
-    recipeName.textContent = menu;
+    const recipeImage = document.getElementById('recipe-image');
+    const ingredientUl = document.querySelector('.recipe');
+    recipeName.textContent = menu.label;
+    recipeImage.src=menu.image;
+    recipeImage.alt=menu.label;
+    recipeImage.style.border = '2px solid grey'
+
+    menu.ingredientLines.forEach (ingred => {
+        const ingredList = document.createElement('li');
+        
+        ingredList.textContent = ingred;
+        ingredList.innerHTML = `<i class="fas fa-dot-circle"></i>${ingred}`;
+        ingredientUl.appendChild(ingredList);   
+    })
+    
+
+    const link = document.createElement('button');
+    link.innerHTML = `<a href="${menu.url}">Go to Recipe</a>`;
+    ingredientUl.appendChild(link);
+    console.log(menu);
 };
 
 recipeApp.init = () => {
