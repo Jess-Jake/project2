@@ -142,7 +142,7 @@ section {
         border: 1px solid black;
         margin-top: 2.5%;
 
-        h2{
+        .recipe-label{
             text-align: center;
         }
         .image-container {
@@ -161,6 +161,9 @@ section {
     }
 
     .recipe {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 90%;
         height: 55%;
         background-color: $dark-yellow;
@@ -168,6 +171,7 @@ section {
         border: 1px solid black;
         color: $dark-brown;
         padding: 5px;
+        overflow-y: auto;
 
     
         li {
@@ -179,6 +183,24 @@ section {
             font-size: $small;
             margin-right: 3px;
         }
+
+        button {
+            border: 2px solid $dark-brown;
+            background-color: $light-green;
+            color: $dark-brown;
+            font-size: $x-small;
+
+            a {
+                text-decoration: none;
+                color: $dark-brown;
+            }
+        }
+
+        button:hover,
+        button:focus {
+            cursor: pointer;
+            opacity: 0.5;
+        }
     }
 
 }
@@ -186,6 +208,22 @@ section {
 .button-section {
     width: 200px;
     text-align: center;
+
+    .submit-button {
+        background-color: $light-green;
+        width: 70%;
+        height: 100px;
+        font-size: $medium;
+        color: $dark-brown;
+        border: 2px solid $dark-brown;
+        border-radius: 5%;
+    }
+
+    .submit-button:hover,
+    .submit-button:focus {
+        opacity: 0.5;
+        cursor: pointer;
+    }
 }
 
 
