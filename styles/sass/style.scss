@@ -166,6 +166,8 @@ section {
         .recipe-label{
             text-align: center;
             padding-left: 15%;
+            padding-right: 5%;
+            font-size: $large;
         }
         .image-container {
             visibility: hidden;
@@ -200,7 +202,7 @@ section {
 
     
         li {
-            font-size: $x-small;
+            font-size: $small;
             list-style: none;
         }
 
