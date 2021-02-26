@@ -118,6 +118,7 @@ section {
         border-radius: 3%;
         border: 1px solid black;
         color: $dark-brown;
+        position: relative;
 
         li {
             font-size: $medium;
@@ -128,12 +129,32 @@ section {
             font-size: $small;
             margin-right: 3px;
         }
+         
+         .clear-storage {
+            border: 2px solid $dark-brown;
+            background-color: $light-green;
+            color: $dark-brown;
+            font-size: $x-small;
+            position: absolute;
+            bottom: 5px;
+
+
+            a {
+                text-decoration: none;
+                color: $dark-brown;
+            }
+        }
+
+        .clear-storage:hover,
+        .clear-storage:focus {
+            cursor: pointer;
+            opacity: 0.5;
+        }
     }
 
     .recipe-title {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         width: 90%;
         height: 35%;
@@ -144,16 +165,20 @@ section {
 
         .recipe-label{
             text-align: center;
+            padding-left: 15%;
         }
         .image-container {
-            width: 70%;
-            height: auto;
-            max-height: 70%;
+            visibility: hidden;
+            width: auto;
+            height: 90%;
+            max-height: 90%;
+            overflow: none;
+
             .recipe-image {
                 width: 100%;
                 height: 100%;
                 border-radius: 3%;
-                object-fit: cover;
+                object-fit: contain;
     
             }
         }

@@ -35,12 +35,18 @@ recipeApp.apiKey = '293c08c7945e511e5cb756b37b0c5179';
 recipeApp.addIngred = () => {
     const ingredients = document.querySelector("#ingredient");
     const addButton = document.querySelector(".add-button");
+    const clearStorage = document.querySelector("#clear-storage");
+    clearStorage.addEventListener("click",(e) =>{
+        e.preventDefault();
+        recipeApp.clearLocalStorage();
+    })
 
 
     addButton.addEventListener("click", (e) =>{
         e.preventDefault();
         const storage = document.querySelector("#storage");
         const storageList = document.createElement("li");
+        storageList.className = "storage-list";
         storageList.innerHTML = `<i class="fas fa-dot-circle"></i>${ingredients.value}`;
 
         if (ingredients.value) {
@@ -114,6 +120,8 @@ recipeApp.displayRecipe = (menu) => {
     const recipeName = document.querySelector('.recipe-label');
     const recipeImage = document.getElementById('recipe-image');
     const ingredientUl = document.querySelector('.recipe');
+    const imageContainer = document.querySelector('.image-container');
+    imageContainer.style.visibility = "visible";
     
     recipeName.textContent = menu.label;
 
@@ -151,11 +159,18 @@ recipeApp.getLocalStorage = () => {
         const parsedIngred = JSON.parse(loadedIngred);
         parsedIngred.forEach(ingred => {
             const storageList = document.createElement("li");
+            storageList.className = "storage-list";
             storageList.innerHTML = `<i class="fas fa-dot-circle"></i>${ingred}`;
-            storage.appendChild(storageList);
+            storage.prepend(storageList);
             recipeApp.ingredStorageArray.push(ingred);
         })
     }
+}
+
+recipeApp.clearLocalStorage = () => {
+    localStorage.clear();
+    const storageList = document.querySelector(".storage-list");
+    storageList.innerHTML = '';
 }
 
 recipeApp.init = () => {
