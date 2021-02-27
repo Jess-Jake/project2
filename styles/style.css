@@ -262,7 +262,7 @@ h1 {
 
 header {
   width: 100%;
-  height: 20%;
+  height: 15%;
   background-color: #77abd9;
   color: #a8dba8;
   text-align: center;
@@ -273,7 +273,7 @@ header h2 {
 }
 
 main {
-  height: 70%;
+  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -287,7 +287,7 @@ main {
 
 .wrapper {
   max-width: 1200px;
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -309,7 +309,7 @@ section {
 }
 
 .fridge {
-  width: 90%;
+  width: 100%;
   height: 90%;
   background-color: #FAF6E5;
   border-radius: 3%;
@@ -414,9 +414,10 @@ section {
 
 .fridge .storage .clear-storage {
   border: 2px solid #736357;
+  border-radius: 3%;
   background-color: #a8dba8;
   color: #736357;
-  font-size: 1rem;
+  font-size: 1.25rem;
   position: absolute;
   bottom: 5px;
 }
@@ -451,10 +452,11 @@ section {
 }
 
 .fridge .recipe-title .recipe-label {
+  width: 50%;
   text-align: center;
   padding-left: 15%;
   padding-right: 5%;
-  font-size: 2.25rem;
+  font-size: 2rem;
 }
 
 .fridge .recipe-title .image-container {
@@ -463,6 +465,7 @@ section {
   height: 90%;
   max-height: 90%;
   overflow: none;
+  margin: 10px;
 }
 
 .fridge .recipe-title .image-container .recipe-image {
@@ -481,9 +484,6 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   width: 90%;
   height: 55%;
   background-color: #F7F0D4;
@@ -494,8 +494,12 @@ section {
   overflow-y: auto;
 }
 
+.fridge .recipe ul {
+  padding-left: 5px;
+}
+
 .fridge .recipe li {
-  font-size: 1.25rem;
+  font-size: 2rem;
   list-style: none;
 }
 
@@ -504,20 +508,29 @@ section {
   margin-right: 3px;
 }
 
-.fridge .recipe button {
+.fridge .recipe-link {
+  width: 90%;
+}
+
+.fridge .recipe-link button {
+  border-radius: 3%;
   border: 2px solid #736357;
   background-color: #a8dba8;
   color: #736357;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-.fridge .recipe button a {
+.fridge .recipe-link button a {
   text-decoration: none;
   color: #736357;
 }
 
-.fridge .recipe button:hover,
-.fridge .recipe button:focus {
+.fridge .recipe-link button:hover,
+.fridge .recipe-link button:focus {
   cursor: pointer;
   opacity: 0.5;
 }
@@ -548,8 +561,80 @@ footer {
   bottom: 0;
   background-color: #a8dba8;
   width: 100%;
-  height: 10%;
+  height: 5%;
   text-align: center;
   color: #77abd9;
   font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  padding: 0;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    width: 95%;
+  }
+  header h2 {
+    font-size: 1.75rem;
+  }
+  .fridge form input {
+    width: 70%;
+  }
+  .fridge form ::-webkit-input-placeholder {
+    font-size: 1.25rem;
+  }
+  .fridge form :-ms-input-placeholder {
+    font-size: 1.25rem;
+  }
+  .fridge form ::-ms-input-placeholder {
+    font-size: 1.25rem;
+  }
+  .fridge form ::placeholder {
+    font-size: 1.25rem;
+  }
+  .fridge .recipe-label {
+    font-size: 1.75rem;
+  }
+  .fridge .recipe li {
+    font-size: 1.25rem;
+  }
+  .button-section {
+    width: 150px;
+  }
+}
+
+@media (max-width: 650px) {
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100vh;
+  }
+  main .main-section {
+    width: 90%;
+    max-width: 300px;
+  }
+  footer {
+    position: relative;
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    height: 20%;
+  }
 }

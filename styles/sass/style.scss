@@ -19,7 +19,7 @@ h1 {
 
 header {
     width: 100%;
-    height: 20%;
+    height: 15%;
     background-color: $dark-blue;
     color: $light-green;
     text-align: center;
@@ -30,7 +30,7 @@ header {
 
 
 main {
-    height: 70%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ main {
 
 .wrapper {
     max-width: 1200px;
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
 } 
 
@@ -54,7 +54,7 @@ section {
 }
 
 .fridge {
-    width: 90%;
+    width: 100%;
     height: 90%;
     background-color: $light-yellow;
     border-radius: 3%;
@@ -132,11 +132,13 @@ section {
          
          .clear-storage {
             border: 2px solid $dark-brown;
+            border-radius: 3%;
             background-color: $light-green;
             color: $dark-brown;
-            font-size: $x-small;
+            font-size: $small;
             position: absolute;
             bottom: 5px;
+
 
 
             a {
@@ -164,10 +166,11 @@ section {
         margin-top: 2.5%;
 
         .recipe-label{
+            width: 50%;
             text-align: center;
             padding-left: 15%;
             padding-right: 5%;
-            font-size: $large;
+            font-size: $medium;
         }
         .image-container {
             visibility: hidden;
@@ -175,6 +178,7 @@ section {
             height: 90%;
             max-height: 90%;
             overflow: none;
+            margin: 10px;
 
             .recipe-image {
                 width: 100%;
@@ -190,7 +194,6 @@ section {
     .recipe {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         width: 90%;
         height: 55%;
         background-color: $dark-yellow;
@@ -199,10 +202,13 @@ section {
         color: $dark-brown;
         padding: 5px;
         overflow-y: auto;
-
+        // position: relative;
+        ul {
+            padding-left: 5px;
+        }
     
         li {
-            font-size: $small;
+            font-size: $medium;
             list-style: none;
         }
 
@@ -211,12 +217,20 @@ section {
             margin-right: 3px;
         }
 
+    }
+    .recipe-link {
+        width: 90%;
         button {
+            border-radius: 3%;
             border: 2px solid $dark-brown;
             background-color: $light-green;
             color: $dark-brown;
-            font-size: $x-small;
-
+            font-size: $small;
+            // position: absolute;
+            // bottom: 5px;
+            width: 100%;
+            align-self: center;
+   
             a {
                 text-decoration: none;
                 color: $dark-brown;
@@ -229,7 +243,6 @@ section {
             opacity: 0.5;
         }
     }
-
 }
 
 .button-section {
@@ -254,17 +267,74 @@ section {
 }
 
 
-
-
-
-
 footer {
     position: absolute;
     bottom: 0;
     background-color: $light-green;
     width: 100%;
-    height: 10%;
+    height: 5%;
     text-align: center;
     color: $dark-blue;
     font-size: $medium;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    p {
+        padding: 0;
+        font-size: $small;
+    }
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        width: 95%;
+    }
+    header h2 {
+        font-size: $tablet;
+    }
+
+    .fridge {
+        form input {
+            width: 70%;
+        }
+        form ::placeholder{
+            font-size: $small;
+        }
+
+        .recipe-label {
+            font-size: $tablet;
+        }
+        .recipe li{
+            font-size: $small;
+        }
+        
+    }
+    .button-section {
+        width: 150px;
+      
+    }
+}
+
+@media (max-width: 650px) {
+    main{
+        flex-direction: column;
+        height: 100vh;
+        
+        .main-section {
+            width: 90%;
+            max-width: 300px;
+        }
+
+    }
+    footer {
+        position: relative;
+    }
+}
+
+@media (max-width: 420px) {
+    header {
+        height: 20%;
+    }
 }

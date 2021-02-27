@@ -114,7 +114,7 @@ recipeApp.getRecipe = (ingredient) => {
                 recipeApp.displayRecipe(jsonResponse.hits[randomNumber].recipe);
   
             }else {
-                alert('Spelling!')
+                alert('Please check your spelling and try again!')
                 location.reload();
             }
         });
@@ -123,26 +123,28 @@ recipeApp.getRecipe = (ingredient) => {
 recipeApp.displayRecipe = (menu) => {
     const recipeName = document.querySelector('.recipe-label');
     const recipeImage = document.getElementById('recipe-image');
-    const ingredientUl = document.querySelector('.recipe');
+    const ingredientContainer = document.querySelector('.recipe');
     const imageContainer = document.querySelector('.image-container');
+    const recipeLinkButton = document.querySelector('.recipe-link')
     imageContainer.style.visibility = "visible";
     
     recipeName.textContent = menu.label;
     recipeImage.src=menu.image;
     recipeImage.alt=menu.label;
-    recipeImage.style.border = '2px solid grey'
 
-    menu.ingredientLines.forEach (ingred => {
+    menu.ingredientLines.forEach (ingred =>{
+        const ingredUl = document.createElement('ul')
         const ingredList = document.createElement('li');
         ingredList.textContent = ingred;
         ingredList.innerHTML = `<i class="fas fa-dot-circle"></i>${ingred}`;
-        ingredientUl.appendChild(ingredList);   
+        ingredUl.appendChild(ingredList);
+        ingredientContainer.appendChild(ingredUl);   
     })
 
     const link = document.createElement('button');
     link.innerHTML = `<a href="${menu.url}">Go to Recipe</a>`;
 
-    ingredientUl.appendChild(link);
+    recipeLinkButton.appendChild(link);
 };
 
 recipeApp.setLocalStorage = () => {
