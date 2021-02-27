@@ -22,7 +22,6 @@
  *
  */
 
-
 //namespace
 const recipeApp = {};
 recipeApp.localStorage = "ingredient";
@@ -41,7 +40,6 @@ recipeApp.addIngred = () => {
         recipeApp.clearLocalStorage();
     })
 
-
     addButton.addEventListener("click", (e) =>{
         e.preventDefault();
         const storage = document.querySelector("#storage");
@@ -59,7 +57,6 @@ recipeApp.addIngred = () => {
         }
         recipeApp.setLocalStorage();
     })
-   
 }
 
 recipeApp.submitButton = () => {
@@ -105,16 +102,23 @@ recipeApp.getRecipe = (ingredient) => {
         //parse the JSON promise response and log out readable data
         .then((jsonResponse) => {
             
-            const randomNumber = Math.floor(Math.random()*10);
-            jsonResponse.hits[randomNumber].recipe;
+            const randomNumber = Math.floor(Math.random() * jsonResponse.hits.length);
             console.log(jsonResponse.hits[randomNumber]);
             
-            //pass the data into the displayPhotos method
-            recipeApp.displayRecipe(jsonResponse.hits[randomNumber].recipe);
-            
+
+            if (jsonResponse.hits[randomNumber]) {
+                console.log(jsonResponse.hits);
+                jsonResponse.hits[randomNumber].recipe;
+
+                //pass the data into the displayPhotos method
+                recipeApp.displayRecipe(jsonResponse.hits[randomNumber].recipe);
+  
+            }else {
+                alert('Spelling!')
+                location.reload();
+            }
         });
 };
-
 
 recipeApp.displayRecipe = (menu) => {
     const recipeName = document.querySelector('.recipe-label');
@@ -124,16 +128,12 @@ recipeApp.displayRecipe = (menu) => {
     imageContainer.style.visibility = "visible";
     
     recipeName.textContent = menu.label;
-
-    console.log(recipeName);
-    
     recipeImage.src=menu.image;
     recipeImage.alt=menu.label;
     recipeImage.style.border = '2px solid grey'
 
     menu.ingredientLines.forEach (ingred => {
         const ingredList = document.createElement('li');
-        
         ingredList.textContent = ingred;
         ingredList.innerHTML = `<i class="fas fa-dot-circle"></i>${ingred}`;
         ingredientUl.appendChild(ingredList);   
@@ -143,7 +143,6 @@ recipeApp.displayRecipe = (menu) => {
     link.innerHTML = `<a href="${menu.url}">Go to Recipe</a>`;
 
     ingredientUl.appendChild(link);
-    console.log(menu);
 };
 
 recipeApp.setLocalStorage = () => {
@@ -169,8 +168,12 @@ recipeApp.getLocalStorage = () => {
 
 recipeApp.clearLocalStorage = () => {
     localStorage.clear();
-    const storageList = document.querySelector(".storage-list");
-    storageList.innerHTML = '';
+    const storageList = document.querySelectorAll(".storage-list");
+    
+    for (let i = 0; i < storageList.length; i++) {
+        storageList[i].innerHTML = '';
+    }
+    location.reload();
 }
 
 recipeApp.init = () => {
@@ -178,7 +181,5 @@ recipeApp.init = () => {
     recipeApp.addIngred();
     recipeApp.submitButton();
 };
-
-
 
 recipeApp.init();
