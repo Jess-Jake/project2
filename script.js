@@ -142,28 +142,24 @@ recipeApp.displayRecipe = (menu) => {
     recipeImage.alt=menu.label;
 
     if(healthLabels.includes('Peanut-Free')){
-        console.log('Peanut-Free');
         const peanutFreeList = document.createElement('li');
         peanutFreeList.innerHTML = '<i class="fas fa-smile-wink"><span>Peanut-Free</span></i>';
         nutritionUl.appendChild(peanutFreeList);
     }
 
     if (healthLabels.includes('Vegan')) {
-        console.log('Vegan');
         const veganList = document.createElement('li');
         veganList.innerHTML = '<i class="fas fa-leaf"><span>Vegan</span></i>'
         nutritionUl.appendChild(veganList);
     }
 
     if (healthLabels.includes('Vegetarian')) {
-        console.log('Vegetarian'); 
         const vegetarianList = document.createElement('li');
         vegetarianList.innerHTML = '<i class="fas fa-circle"><span>Vegetarian</span></i>'
         nutritionUl.appendChild(vegetarianList);
     }
 
     if (healthLabels.includes('Alcohol-Free')) {
-        console.log('Alcohol-Free');
         const alcoholFreeList = document.createElement('li');
         alcoholFreeList.innerHTML = '<i class="fas fa-ban"><span>Alcohol-Free</span></i>'
         nutritionUl.appendChild(alcoholFreeList);
