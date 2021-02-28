@@ -102,12 +102,9 @@ recipeApp.getRecipe = (ingredient) => {
         //parse the JSON promise response and log out readable data
         .then((jsonResponse) => {
             
-            const randomNumber = Math.floor(Math.random() * jsonResponse.hits.length);
-            console.log(jsonResponse.hits[randomNumber]);
-            
+            const randomNumber = Math.floor(Math.random() * jsonResponse.hits.length);    
 
             if (jsonResponse.hits[randomNumber]) {
-                console.log(jsonResponse.hits);
                 jsonResponse.hits[randomNumber].recipe;
 
                 //pass the data into the displayPhotos method
@@ -125,12 +122,55 @@ recipeApp.displayRecipe = (menu) => {
     const recipeImage = document.getElementById('recipe-image');
     const ingredientContainer = document.querySelector('.recipe');
     const imageContainer = document.querySelector('.image-container');
-    const recipeLinkButton = document.querySelector('.recipe-link')
-    imageContainer.style.visibility = "visible";
+    const recipeLinkButton = document.querySelector('.recipe-link');
+    const ingredientUl = document.querySelector('.recipe');
+    const nutritionUl = document.createElement('ul');
+    const nutrition = document.querySelector('.nutrition');
     
+    const healthLabels = menu.healthLabels;
+    imageContainer.style.visibility = "visible";
+
+    recipeName.textContent = '';
+    recipeImage.src = '';
+    recipeImage.alt = '';
+    recipeLinkButton.innerHTML = '';
+    ingredientUl.innerHTML = '';
+    nutrition.innerHTML = '';
+
     recipeName.textContent = menu.label;
     recipeImage.src=menu.image;
     recipeImage.alt=menu.label;
+
+    if(healthLabels.includes('Peanut-Free')){
+        console.log('Peanut-Free');
+        const peanutFreeList = document.createElement('li');
+        peanutFreeList.innerHTML = '<i class="fas fa-smile-wink"><span>Peanut-Free</span></i>';
+        nutritionUl.appendChild(peanutFreeList);
+    }
+
+    if (healthLabels.includes('Vegan')) {
+        console.log('Vegan');
+        const veganList = document.createElement('li');
+        veganList.innerHTML = '<i class="fas fa-leaf"><span>Vegan</span></i>'
+        nutritionUl.appendChild(veganList);
+    }
+
+    if (healthLabels.includes('Vegetarian')) {
+        console.log('Vegetarian'); 
+        const vegetarianList = document.createElement('li');
+        vegetarianList.innerHTML = '<i class="fas fa-circle"><span>Vegetarian</span></i>'
+        nutritionUl.appendChild(vegetarianList);
+    }
+
+    if (healthLabels.includes('Alcohol-Free')) {
+        console.log('Alcohol-Free');
+        const alcoholFreeList = document.createElement('li');
+        alcoholFreeList.innerHTML = '<i class="fas fa-ban"><span>Alcohol-Free</span></i>'
+        nutritionUl.appendChild(alcoholFreeList);
+    }
+
+    nutrition.appendChild(nutritionUl);
+    
 
     menu.ingredientLines.forEach (ingred =>{
         const ingredUl = document.createElement('ul')
@@ -154,7 +194,6 @@ recipeApp.setLocalStorage = () => {
 recipeApp.getLocalStorage = () => {
     const loadedIngred = localStorage.getItem(recipeApp.localStorage);
     const storage = document.querySelector("#storage");
-    console.log(typeof (JSON.parse(loadedIngred)));
 
     if (loadedIngred) {
         const parsedIngred = JSON.parse(loadedIngred);
