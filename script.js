@@ -72,7 +72,7 @@ recipeApp.submitButton = () => {
         recipeImage.alt = '';
         ingredientUl.innerHTML = '';
 
-        const ingredList = document.querySelectorAll('li');
+        const ingredList = document.querySelectorAll('.storage-list');
         const randomNumber = Math.floor(Math.random() * ingredList.length);
         if (ingredList[randomNumber]) {
             recipeApp.getRecipe((ingredList[randomNumber]).textContent);
